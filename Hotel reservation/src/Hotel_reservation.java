@@ -64,7 +64,7 @@ public class Hotel_reservation {
                     return;
 
                     default:
-                    System.out.println("Invalid choice. --  Try Again");
+                    System.out.println("Invalid choice. -- Please Try Again");
                     
                 }
             }
