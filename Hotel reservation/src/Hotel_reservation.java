@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Hotel_reservation {
     private static final String url = "jdbc:mysql://localhost:3306/hotel_db";
     private static final String username = "root";
-    private static final String password = "Gforgoat2****0";
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException{
         
@@ -21,14 +20,19 @@ public class Hotel_reservation {
         }
 
         try{
-            Connection conn = DriverManager.getConnection(url, username, password);
+            System.out.println();
+            System.out.print("Enter the password: ");
+            Scanner sc = new Scanner(System.in);
+            String pass = sc.next();
+            System.out.println();
+            Connection conn = DriverManager.getConnection(url, username, pass);
             Statement statement = conn.createStatement();
+            System.out.println("WELCOME :) ");
             
 
             while(true){
                 System.out.println();
                 System.out.println("HOTEL RESERVATION SYSTEM");
-                Scanner sc = new Scanner(System.in);
                 System.out.println("1. Reserve a room");
                 System.out.println("2. View Reservations");
                 System.out.println("3. Get room number");
@@ -70,9 +74,10 @@ public class Hotel_reservation {
             }
 
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Connection cannot be established. --  Check if your password is correct.");
+            System.out.println();
         }catch(InterruptedException e){
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
